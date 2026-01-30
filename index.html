@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NezeraRide — Camisetas e Moletons para Motociclistas</title>
+  <meta name="description" content="Camisetas e moletons NezeraRide com impressão DTF: durabilidade, conforto e identidade para quem vive a cultura motociclista — dentro e fora da moto.">
+  <style>
+    :root{
+      /* Cores — Luxo: preto + branco + dourado (premium) */
+      --color-primary:#0b0c10;      /* black */
+      --color-secondary:#ffffff;    /* white */
+      --color-accent:#c9a227;       /* gold */
+      --color-accent-2:#f0d37a;     /* soft gold */
+      --color-text:#eaeaea;
+      --color-text-light:#bdbdbd;
+      --color-bg:#07070a;
+      --color-surface:rgba(255,255,255,0.06);
+      --color-surface-2:rgba(255,255,255,0.10);
+      --color-border:rgba(255,255,255,0.12);
+
+      /* Tipografia — OBRIGATÓRIO: system fonts */
+      --font-body:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+      --font-heading:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+
+      /* Escala tipográfica — Padrão */
+      --text-sm:0.875rem;
+      --text-base:1rem;
+      --text-lg:1.125rem;
+      --text-xl:1.25rem;
+      --text-2xl:1.5rem;
+      --text-3xl:1.875rem;
+      --text-4xl:2.25rem;
+
+      /* Layout */
+      --container-width:1200px;
+      --padding-mobile:20px;
+      --padding-desktop:32px;
+      --section-gap-mobile:60px;
+      --section-gap-desktop:120px;
+
+      /* Motion — Moderada */
+      --transition-fast:300ms;
+      --transition-medium:600ms;
+      --transition-slow:900ms;
+      --easing:ease-in-out;
+      --reveal-delay:400ms;
+
+      /* Bordas */
+      --radius-sm:8px;
+      --radius-md:16px;
+      --radius-lg:32px;
+      --radius-pill:34px;
+      --radius-full:50%;
+
+      /* Sombra leve (evitar pesado) */
+      --shadow-soft:0 10px 30px rgba(0,0,0,0.25);
+      --shadow-lift:0 16px 40px rgba(0,0,0,0.35);
+
+      /* Acessibilidade */
+      --focus-ring:0 0 0 3px rgba(201,162,39,0.35);
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      color:var(--color-text);
+      background:radial-gradient(1200px 800px at 15% 10%, rgba(201,162,39,0.12), transparent 60%),
+                 radial-gradient(1000px 700px at 85% 25%, rgba(255,255,255,0.06), transparent 55%),
+                 var(--color-bg);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+    button,input,select,textarea{font-family:inherit}
+
+    .container{
+      max-width:var(--container-width);
+      margin:0 auto;
+      padding:0 var(--padding-mobile);
+    }
+    @media (min-width:768px){
+      .container{padding:0 var(--padding-desktop);}
+    }
+
+    .section{
+      padding:var(--section-gap-mobile) 0;
+      content-visibility:auto;
+      contain-intrinsic-size:1px 900px;
+    }
+    @media (min-width:768px){
+      .section{padding:var(--section-gap-desktop) 0;}
+    }
+
+    /* Tipografia */
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid var(--color-border);
+      color:var(--color-text-light);
+      font-size:var(--text-sm);
+      line-height:1;
+      letter-spacing:0.2px;
+      width:fit-content;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--color-accent);
+      box-shadow:0 0 0 6px rgba(201,162,39,0.12);
+      flex:0 0 auto;
+    }
+
+    .heading-xl{
+      font-family:var(--font-heading);
+      font-size:clamp(2rem, 6vw, 3.25rem);
+      line-height:1.1;
+      font-weight:800;
+      margin:14px 0 0;
+      letter-spacing:-0.02em;
+    }
+    .heading-lg{
+      font-family:var(--font-heading);
+      font-size:clamp(1.5rem, 3.8vw, 2.25rem);
+      line-height:1.2;
+      font-weight:800;
+      margin:0 0 10px;
+      letter-spacing:-0.01em;
+    }
+    .heading-md{
+      font-size:clamp(1.125rem, 2.4vw, 1.375rem);
+      line-height:1.25;
+      font-weight:750;
+      margin:0 0 6px;
+    }
+    .text-base{
+      font-size:var(--text-base);
+      line-height:1.6;
+      color:var(--color-text-light);
+      margin:12px 0 0;
+    }
+    .text-lg{
+      font-size:var(--text-lg);
+      line-height:1.6;
+      color:var(--color-text-light);
+      margin:14px 0 0;
+    }
+
+    /* Componentes */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      height:56px;
+      padding:0 26px;
+      border-radius:var(--radius-pill);
+      font-weight:700;
+      font-size:1rem;
+      line-height:56px;
+      border:2px solid transparent;
+      cursor:pointer;
+      transition:transform var(--transition-fast) var(--easing),
+                 background var(--transition-fast) var(--easing),
+                 border-color var(--transition-fast) var(--easing),
+                 color var(--transition-fast) var(--easing),
+                 box-shadow var(--transition-fast) var(--easing);
+      user-select:none;
+      white-space:nowrap;
+      min-width:44px;
+      min-height:44px;
+    }
+    .btn:focus{outline:none; box-shadow:var(--focus-ring);}
+    .btn-primary{
+      background:linear-gradient(180deg, rgba(201,162,39,1), rgba(160,120,18,1));
+      color:#0b0c10;
+    }
+    .btn-primary:hover{
+      transform:scale(1.05);
+      box-shadow:var(--shadow-soft);
+    }
+    .btn-ghost{
+      background:rgba(255,255,255,0.06);
+      border-color:var(--color-border);
+      color:var(--color-text);
+    }
+    .btn-ghost:hover{
+      transform:scale(1.05);
+      background:rgba(255,255,255,0.10);
+    }
+    .btn-small{
+      height:48px;
+      line-height:48px;
+      padding:0 18px;
+      font-weight:700;
+      font-size:0.95rem;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border:1px solid var(--color-border);
+      border-radius:var(--radius-md);
+      box-shadow:none;
+    }
+    .card.pad{padding:18px;}
+    @media (min-width:768px){
+      .card.pad{padding:22px;}
+    }
+
+    .grid{
+      display:grid;
+      gap:16px;
+    }
+    @media (min-width:768px){
+      .grid{gap:18px;}
+    }
+
+    .split{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+    @media (min-width:768px){
+      .split{
+        flex-direction:row;
+        align-items:center;
+        gap:34px;
+      }
+      .split > *{flex:1;}
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--color-border);
+      background:rgba(255,255,255,0.06);
+      color:var(--color-text);
+      font-size:var(--text-sm);
+      font-weight:700;
+      width:fit-content;
+    }
+    .badge .seal{
+      width:26px;height:26px;border-radius:999px;
+      display:grid; place-items:center;
+      background:rgba(201,162,39,0.14);
+      border:1px solid rgba(201,162,39,0.35);
+      color:var(--color-accent-2);
+      font-weight:900;
+      line-height:1;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.12);
+      color:var(--color-text-light);
+      font-size:var(--text-sm);
+      width:fit-content;
+    }
+
+    .divider{
+      height:1px;
+      background:rgba(255,255,255,0.10);
+      margin:14px 0;
+    }
+
+    /* Header — Sticky com glassmorphism */
+    header{
+      position:sticky;
+      top:0;
+      height:100px;
+      z-index:100;
+      background:rgba(10,10,12,0.55);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .header-inner{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+    .logo{
+      width:42px;height:42px;border-radius:12px;
+      background:linear-gradient(180deg, rgba(201,162,39,1), rgba(160,120,18,1));
+      display:grid;place-items:center;
+      color:#0b0c10;
+      font-weight:900;
+      letter-spacing:-0.04em;
+      flex:0 0 auto;
+    }
+    .brand-name{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+      min-width:0;
+    }
+    .brand-name strong{
+      font-size:1rem;
+      letter-spacing:0.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand-name span{
+      font-size:0.85rem;
+      color:var(--color-text-light);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    nav{
+      display:none;
+      gap:16px;
+      align-items:center;
+    }
+    nav a{
+      font-size:0.95rem;
+      color:var(--color-text-light);
+      padding:10px 10px;
+      border-radius:10px;
+      transition:background var(--transition-fast) var(--easing), color var(--transition-fast) var(--easing);
+    }
+    nav a:hover{background:rgba(255,255,255,0.06); color:var(--color-text);}
+    .header-cta{display:flex; gap:10px; align-items:center;}
+    .menu-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:44px;height:44px;
+      border-radius:12px;
+      border:1px solid var(--color-border);
+      background:rgba(255,255,255,0.05);
+      color:var(--color-text);
+      cursor:pointer;
+      transition:transform var(--transition-fast) var(--easing), background var(--transition-fast) var(--easing);
+    }
+    .menu-btn:hover{transform:scale(1.05); background:rgba(255,255,255,0.10);}
+    .menu-btn:focus{outline:none; box-shadow:var(--focus-ring);}
+
+    @media (min-width:768px){
+      nav{display:flex;}
+      .menu-btn{display:none;}
+    }
+
+    /* Mobile drawer */
+    .drawer{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.55);
+      display:none;
+      z-index:200;
+    }
+    .drawer.open{display:block;}
+    .drawer-panel{
+      position:absolute;
+      top:0; right:0;
+      width:min(360px, 92vw);
+      height:100%;
+      background:rgba(12,12,14,0.92);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-left:1px solid rgba(255,255,255,0.10);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .drawer-panel a{
+      padding:14px 12px;
+      border-radius:12px;
+      color:var(--color-text);
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.05);
+    }
+    .drawer-panel a:hover{background:rgba(255,255,255,0.10);}
+    .drawer-top{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .close-btn{
+      width:44px;height:44px;border-radius:12px;
+      border:1px solid var(--color-border);
+      background:rgba(255,255,255,0.06);
+      color:var(--color-text);
+      cursor:pointer;
+    }
+    .close-btn:focus{outline:none; box-shadow:var(--focus-ring);}
+
+    /* Hero */
+    .hero{
+      padding:48px 0 0;
+      content-visibility:visible; /* acima da dobra */
+      contain-intrinsic-size:auto;
+    }
+    @media (min-width:768px){
+      .hero{padding:68px 0 0;}
+    }
+
+    .hero-wrap{
+      display:grid;
+      gap:18px;
+    }
+    @media (min-width:768px){
+      .hero-wrap{
+        grid-template-columns:1.1fr 0.9fr;
+        gap:28px;
+        align-items:center;
+      }
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:18px;
+    }
+    @media (min-width:520px){
+      .hero-actions{
+        flex-direction:row;
+        align-items:center;
+        flex-wrap:wrap;
+      }
+    }
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .hero-media{
+      position:relative;
+    }
+    .hero-image{
+      border-radius:var(--radius-md);
+      border:1px solid rgba(255,255,255,0.12);
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      box-shadow:var(--shadow-soft);
+    }
+    .placeholder-img{
+      background:linear-gradient(135deg, rgba(201,162,39,0.10), rgba(255,255,255,0.05));
+      aspect-ratio:16/10;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(255,255,255,0.75);
+      font-size:14px;
+      text-align:center;
+      padding:20px;
+      border-radius:var(--radius-md);
+    }
+    .hero-seal{
+      position:absolute;
+      left:14px;
+      bottom:14px;
+    }
+
+    /* Lists */
+    .icon-list{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+    }
+    .icon-list li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .icon{
+      width:36px;height:36px;border-radius:12px;
+      display:grid;place-items:center;
+      background:rgba(201,162,39,0.12);
+      border:1px solid rgba(201,162,39,0.35);
+      color:var(--color-accent-2);
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .icon + div{min-width:0;}
+
+    /* Pricing */
+    .price-grid{
+      display:grid;
+      gap:16px;
+    }
+    @media (min-width:768px){
+      .price-grid{grid-template-columns:repeat(3,1fr);}
+    }
+    .price-card{
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .price-card.featured{
+      border-color:rgba(201,162,39,0.45);
+      background:linear-gradient(180deg, rgba(201,162,39,0.18), rgba(255,255,255,0.04));
+      box-shadow:var(--shadow-soft);
+    }
+    .tag{
+      position:absolute;
+      top:14px;
+      right:14px;
+      padding:8px 10px;
+      font-size:0.8rem;
+      border-radius:999px;
+      background:rgba(201,162,39,0.18);
+      border:1px solid rgba(201,162,39,0.45);
+      color:var(--color-accent-2);
+      font-weight:800;
+    }
+    .price{
+      display:flex;
+      align-items:baseline;
+      gap:8px;
+      margin-top:8px;
+    }
+    .price strong{
+      font-size:1.9rem;
+      letter-spacing:-0.02em;
+      color:var(--color-text);
+    }
+    .price span{
+      font-size:0.95rem;
+      color:var(--color-text-light);
+    }
+    .small-note{
+      font-size:0.9rem;
+      color:var(--color-text-light);
+      margin:10px 0 0;
+    }
+
+    /* Forms */
+    .form-grid{
+      display:grid;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (min-width:768px){
+      .form-grid{grid-template-columns:1.2fr 1.2fr 0.6fr;}
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    label{
+      font-size:0.9rem;
+      color:var(--color-text-light);
+    }
+    input,select{
+      height:52px;
+      border-radius:14px;
+      padding:0 14px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.06);
+      color:var(--color-text);
+      outline:none;
+      transition:border-color var(--transition-fast) var(--easing), box-shadow var(--transition-fast) var(--easing);
+    }
+    input::placeholder{color:rgba(255,255,255,0.55)}
+    input:focus,select:focus{
+      border-color:rgba(201,162,39,0.65);
+      box-shadow:var(--focus-ring);
+    }
+    .form-foot{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:10px;
+      color:var(--color-text-light);
+      font-size:0.9rem;
+    }
+    .checkbox{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .checkbox input{
+      width:18px;height:18px;
+      margin-top:3px;
+      flex:0 0 auto;
+    }
+
+    /* FAQ accordion */
+    .faq{
+      display:grid;
+      gap:12px;
+    }
+    .faq-item{
+      border-radius:var(--radius-md);
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.05);
+      overflow:hidden;
+      transition:transform var(--transition-fast) var(--easing), background var(--transition-fast) var(--easing);
+    }
+    .faq-item:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,0.07);
+    }
+    .faq-question{
+      width:100%;
+      padding:16px 16px;
+      background:transparent;
+      border:0;
+      color:var(--color-text);
+      text-align:left;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:800;
+      font-size:1rem;
+      min-height:52px;
+    }
+    .faq-question:focus{outline:none; box-shadow:var(--focus-ring);}
+    .chev{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(0,0,0,0.25);
+      transition:transform var(--transition-fast) var(--easing);
+      flex:0 0 auto;
+      color:var(--color-accent-2);
+      font-weight:900;
+    }
+    .faq-answer{
+      max-height:0;
+      overflow:hidden;
+      padding:0 16px;
+      color:var(--color-text-light);
+      transition:max-height var(--transition-medium) var(--easing), padding var(--transition-medium) var(--easing);
+    }
+    .faq-item.active .faq-answer{
+      max-height:240px;
+      padding:0 16px 16px;
+    }
+    .faq-item.active .chev{transform:rotate(180deg);}
+
+    /* Reveal */
+    .reveal{
+      opacity:0;
+      transform:translateY(20px);
+      transition:opacity var(--transition-medium) var(--easing),
+                 transform var(--transition-medium) var(--easing);
+      will-change:opacity,transform;
+    }
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .reveal-delay-1{transition-delay:calc(var(--reveal-delay) * 1);}
+    .reveal-delay-2{transition-delay:calc(var(--reveal-delay) * 2);}
+    .reveal-delay-3{transition-delay:calc(var(--reveal-delay) * 3);}
+
+    /* Hover cards */
+    .lift{
+      transition:transform var(--transition-fast) var(--easing), box-shadow var(--transition-fast) var(--easing), background var(--transition-fast) var(--easing);
+    }
+    .lift:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-lift);
+      background:linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+    }
+
+    /* Footer */
+    footer{
+      border-top:1px solid rgba(255,255,255,0.10);
+      padding:28px 0 44px;
+      color:var(--color-text-light);
+      font-size:0.95rem;
+    }
+    .footer-grid{
+      display:grid;
+      gap:14px;
+    }
+    @media (min-width:768px){
+      .footer-grid{
+        grid-template-columns:1.2fr 0.8fr 1fr;
+        gap:18px;
+        align-items:start;
+      }
+    }
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .footer-links a{
+      color:var(--color-text-light);
+      padding:8px 10px;
+      border-radius:10px;
+      transition:background var(--transition-fast) var(--easing), color var(--transition-fast) var(--easing);
+      width:fit-content;
+    }
+    .footer-links a:hover{background:rgba(255,255,255,0.06); color:var(--color-text);}
+    .legal{
+      margin-top:10px;
+      font-size:0.9rem;
+      color:rgba(255,255,255,0.55);
+    }
+
+    /* Utility */
+    .muted{color:var(--color-text-light)}
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1; transform:none; transition:none}
+      .btn,.lift,.faq-answer,.chev{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Voltar ao topo">
+          <div class="logo" aria-hidden="true">NR</div>
+          <div class="brand-name">
+            <strong>NezeraRide</strong>
+            <span>Vestuário lifestyle de moto</span>
+          </div>
+        </a>
+
+        <nav aria-label="Navegação principal">
+          <a href="#beneficios">Benefícios</a>
+          <a href="#prova">Prova social</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#planos">Ofertas</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="header-cta">
+          <a class="btn btn-ghost btn-small" href="#cadastro">Quero me cadastrar</a>
+          <a class="btn btn-primary btn-small" href="#planos">Comprar agora</a>
+          <button class="menu-btn" type="button" aria-label="Abrir menu" id="openMenu">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="drawer-top">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">NR</div>
+          <div class="brand-name">
+            <strong>NezeraRide</strong>
+            <span>Identidade na estrada</span>
+          </div>
+        </div>
+        <button class="close-btn" type="button" aria-label="Fechar menu" id="closeMenu">✕</button>
+      </div>
+      <a href="#beneficios">Benefícios</a>
+      <a href="#prova">Prova social</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#oferta">Oferta e diferenciais</a>
+      <a href="#planos">Planos e preços</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cadastro">Cadastro / Conversão</a>
+      <a class="btn btn-primary" href="#planos" style="margin-top:10px;">Comprar agora</a>
+      <p class="muted" style="margin:10px 0 0; font-size:0.9rem;">Feito para mobile: rápido, direto e premium.</p>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- 1. HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-wrap">
+          <div class="reveal active">
+            <div class="kicker" aria-label="Destaque">
+              <span class="dot" aria-hidden="true"></span>
+              Produção própria • Impressão DTF • Premium
+            </div>
+
+            <h1 class="heading-xl">Vista sua identidade. <span style="color:var(--color-accent-2);">Feita pra quem roda.</span></h1>
+
+            <p class="text-lg">Camisetas e moletons NezeraRide com estampa pensada para motociclistas: conforto, resistência e estilo para rodar longe — dentro e fora da moto.</p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#planos" aria-label="Comprar agora">Comprar agora</a>
+              <a class="btn btn-ghost" href="#cadastro" aria-label="Cadastrar e receber novidades">Quero me cadastrar</a>
+            </div>
+
+            <div class="hero-meta" aria-label="Pílulas de benefícios">
+              <span class="pill">✔ Durabilidade que acompanha o dia</span>
+              <span class="pill">✔ Caimento confortável no uso real</span>
+              <span class="pill">✔ Estilo que representa sua tribo</span>
+            </div>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <div class="badge" aria-label="Prova social sutil">
+              <span class="seal" aria-hidden="true">★</span>
+              Motociclistas reais • Made for Riders
+            </div>
+          </div>
+
+          <div class="hero-media reveal active reveal-delay-1">
+            <div class="hero-image" aria-label="Imagem do produto">
+              <img src="/img/ft1.png" 
+              alt="Imagem do Hero: flat lay premium camiseta + moletom NezeraRide ambiente de garagem/asfalto com moto ao fundo]">
+            </div>
+            <div class="hero-seal badge" aria-label="Selo discreto de aprovação">
+              <span class="seal" aria-hidden="true">✓</span>
+              Rider Approved
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. BENEFÍCIOS -->
+    <section class="section" id="beneficios">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <h2 class="heading-lg">Benefícios que você sente na rotina</h2>
+            <p class="text-base">Para o motociclista que vive a moto como identidade: roupas que acompanham o ritmo, sem perder presença.</p>
+          </div>
+
+          <div class="grid reveal reveal-delay-1" style="grid-template-columns:1fr;">
+            <div class="grid" style="grid-template-columns:1fr;">
+              <div class="card pad lift">
+                <div class="icon" aria-hidden="true">DTF</div>
+                <div>
+                  <h3 class="heading-md">Estampa resistente</h3>
+                  <p class="text-base" style="margin:6px 0 0;">Impressão DTF com foco em durabilidade e acabamento premium para uso frequente.</p>
+                </div>
+              </div>
+
+              <div class="card pad lift">
+                <div class="icon" aria-hidden="true">OK</div>
+                <div>
+                  <h3 class="heading-md">Conforto de verdade</h3>
+                  <p class="text-base" style="margin:6px 0 0;">Tecido e caimento escolhidos para quem roda — confortável no calor e no dia a dia.</p>
+                </div>
+              </div>
+
+              <div class="card pad lift">
+                <div class="icon" aria-hidden="true">NR</div>
+                <div>
+                  <h3 class="heading-md">Identidade motociclística</h3>
+                  <p class="text-base" style="margin:6px 0 0;">Design pensado para a cultura rider: não é moda genérica — é pertencimento.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid" style="margin-top:18px; grid-template-columns:1fr;" aria-label="Bloco de confiança">
+          <div class="card pad reveal reveal-delay-2">
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <strong style="font-size:1.05rem;">Do coração da fábrica direto para sua jornada.</strong>
+              <span class="muted">Produção própria, atenção em cada peça e acabamento premium — qualidade não é detalhe, é identidade.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PROVA SOCIAL -->
+    <section class="section" id="prova">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <h2 class="heading-lg">Prova social sem gritar “anúncio”</h2>
+            <p class="text-base">Confiança se constrói com sinais sutis: comunidade, contexto e feedback.</p>
+            <div class="hero-meta" style="margin-top:14px;">
+              <span class="pill">⭐ 4.8/5 (avaliação média)</span>
+              <span class="pill">🏍️ +1.000 riders impactados</span>
+              <span class="pill">📦 Envios em todo Brasil</span>
+            </div>
+            <p class="muted" style="margin:10px 0 0; font-size:0.9rem;">*Números ilustrativos para layout — substitua por dados reais.</p>
+          </div>
+
+          <div class="grid reveal reveal-delay-1" style="grid-template-columns:1fr;">
+            <div class="card pad lift">
+              <strong>“Veste bem e a estampa segurou.”</strong>
+              <p class="text-base" style="margin:8px 0 0;">Usei em rolê e no dia a dia. Caimento confortável e acabamento acima do comum.</p>
+              <div class="muted" style="margin-top:10px; font-size:0.9rem;">— Rider urbano, SP</div>
+            </div>
+            <div class="card pad lift">
+              <strong>“Parece feita pra quem realmente roda.”</strong>
+              <p class="text-base" style="margin:8px 0 0;">Não tem cara de moda genérica. O estilo é motociclístico, sem exagero.</p>
+              <div class="muted" style="margin-top:10px; font-size:0.9rem;">— Rolê fim de semana, RJ</div>
+            </div>
+            <div class="card pad lift">
+              <strong>“Chegou rápido, qualidade premium.”</strong>
+              <p class="text-base" style="margin:8px 0 0;">Tecido bom, costura firme e estampa com acabamento limpo. Recomendo.</p>
+              <div class="muted" style="margin-top:10px; font-size:0.9rem;">— Estradeiro, MG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card pad reveal reveal-delay-2" style="margin-top:18px;">
+          <img src="img/image.png" 
+          alt="[Imagem Prova Social: encontro/rolê com riders ao fundo (desfocado) + peças NezeraRide em foco]">
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. COMO FUNCIONA -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="heading-lg">Como funciona</h2>
+          <p class="text-base">Sem enrolação: escolha, confirme e receba. Feito para ser rápido no celular.</p>
+        </div>
+
+        <div class="grid" style="margin-top:16px; grid-template-columns:1fr;" aria-label="Passos">
+          <div class="card pad lift reveal reveal-delay-1">
+            <div class="icon" aria-hidden="true">1</div>
+            <h3 class="heading-md" style="margin-top:10px;">Escolha sua peça</h3>
+            <p class="text-base" style="margin-top:6px;">Camiseta ou moletom com estampa pensada para a cultura rider.</p>
+          </div>
+          <div class="card pad lift reveal reveal-delay-2">
+            <div class="icon" aria-hidden="true">2</div>
+            <h3 class="heading-md" style="margin-top:10px;">Selecione tamanho e finalize</h3>
+            <p class="text-base" style="margin-top:6px;">Checkout simples com guia de medidas para reduzir dúvida de caimento.</p>
+          </div>
+          <div class="card pad lift reveal reveal-delay-3">
+            <div class="icon" aria-hidden="true">3</div>
+            <h3 class="heading-md" style="margin-top:10px;">Receba e vista sua identidade</h3>
+            <p class="text-base" style="margin-top:6px;">Da fábrica para a sua jornada — pronto para rodar e representar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. OFERTA E DIFERENCIAIS -->
+    <section class="section" id="oferta">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <h2 class="heading-lg">Oferta e diferenciais</h2>
+            <p class="text-base">NezeraRide não é só roupa: é identidade com padrão de qualidade de fábrica.</p>
+
+            <ul class="icon-list" style="margin-top:16px;">
+              <li class="reveal reveal-delay-1">
+                <div class="icon" aria-hidden="true">✓</div>
+                <div>
+                  <strong>Produção própria</strong>
+                  <div class="muted" style="margin-top:4px;">Atenção em cada peça, do tecido ao acabamento.</div>
+                </div>
+              </li>
+              <li class="reveal reveal-delay-2">
+                <div class="icon" aria-hidden="true">DTF</div>
+                <div>
+                  <strong>Impressão DTF premium</strong>
+                  <div class="muted" style="margin-top:4px;">Acabamento limpo, visual forte e foco em durabilidade.</div>
+                </div>
+              </li>
+              <li class="reveal reveal-delay-3">
+                <div class="icon" aria-hidden="true">🏍</div>
+                <div>
+                  <strong>Design para motociclista</strong>
+                  <div class="muted" style="margin-top:4px;">Estampas com linguagem rider — sem parecer fantasia.</div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="hero-actions" style="margin-top:18px;">
+              <a class="btn btn-primary" href="#planos">Ver ofertas</a>
+              <a class="btn btn-ghost" href="#faq">Tirar dúvidas</a>
+            </div>
+          </div>
+
+          <div class="card pad reveal reveal-delay-1">
+            <img src="img/ft3.png" 
+            alt="[Imagem Diferenciais: close-up do tecido + costura + detalhe da estampa DTF]">
+            <div class="divider" aria-hidden="true"></div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="pill">Acabamento premium</span>
+              <span class="pill">Conforto no uso real</span>
+              <span class="pill">Identidade rider</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PLANOS E PREÇOS -->
+    <section class="section" id="planos">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="heading-lg">Planos e preços</h2>
+          <p class="text-base">Opções simples para decidir rápido. Ajuste valores e itens conforme sua loja.</p>
+        </div>
+
+        <div class="price-grid" style="margin-top:16px;">
+          <div class="card price-card lift reveal reveal-delay-1">
+            <h3 class="heading-md">Camiseta Rider</h3>
+            <p class="muted" style="margin:6px 0 0;">Entrada perfeita na NezeraRide</p>
+            <div class="price"><strong>R$ 119</strong><span>à vista</span></div>
+            <p class="small-note">Impressão DTF premium + tecido confortável.</p>
+            <div class="divider" aria-hidden="true"></div>
+            <ul class="icon-list" style="gap:10px;">
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>DTF premium</strong><div class="muted">acabamento limpo</div></div></li>
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>Caimento</strong><div class="muted">conforto no dia a dia</div></div></li>
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>Estilo rider</strong><div class="muted">identidade sem exagero</div></div></li>
+            </ul>
+            <div style="margin-top:16px;">
+              <a class="btn btn-primary" href="#cadastro" aria-label="Comprar Camiseta Rider">Quero essa camiseta</a>
+            </div>
+            <p class="muted" style="margin:10px 0 0; font-size:0.9rem;">*Preço ilustrativo.</p>
+          </div>
+
+          <div class="card price-card featured lift reveal reveal-delay-2" aria-label="Plano em destaque">
+            <div class="tag">Mais escolhido</div>
+            <h3 class="heading-md">Kit Identidade</h3>
+            <p class="muted" style="margin:6px 0 0;">Camiseta + Moletom</p>
+            <div class="price"><strong>R$ 279</strong><span>à vista</span></div>
+            <p class="small-note">Para representar dentro e fora da moto — com vantagem no combo.</p>
+            <div class="divider" aria-hidden="true"></div>
+            <ul class="icon-list" style="gap:10px;">
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>Combo com vantagem</strong><div class="muted">melhor custo-benefício</div></div></li>
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>2 estações</strong><div class="muted">verão + inverno</div></div></li>
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>Rider Approved</strong><div class="muted">prova social sutil</div></div></li>
+            </ul>
+            <div style="margin-top:16px;">
+              <a class="btn btn-primary" href="#cadastro" aria-label="Comprar Kit Identidade">Quero o kit completo</a>
+            </div>
+            <p class="muted" style="margin:10px 0 0; font-size:0.9rem;">*Preço ilustrativo.</p>
+          </div>
+
+          <div class="card price-card lift reveal reveal-delay-3">
+            <h3 class="heading-md">Moletom Estrada</h3>
+            <p class="muted" style="margin:6px 0 0;">Para o frio com presença</p>
+            <div class="price"><strong>R$ 189</strong><span>à vista</span></div>
+            <p class="small-note">Conforto, resistência e estilo para rodar longe.</p>
+            <div class="divider" aria-hidden="true"></div>
+            <ul class="icon-list" style="gap:10px;">
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>Tecido encorpado</strong><div class="muted">sensação premium</div></div></li>
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>DTF durável</strong><div class="muted">alto impacto</div></div></li>
+              <li><span class="icon" aria-hidden="true">✓</span><div><strong>Estilo</strong><div class="muted">fora e dentro da moto</div></div></li>
+            </ul>
+            <div style="margin-top:16px;">
+              <a class="btn btn-primary" href="#cadastro" aria-label="Comprar Moletom Estrada">Quero meu moletom</a>
+            </div>
+            <p class="muted" style="margin:10px 0 0; font-size:0.9rem;">*Preço ilustrativo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="heading-lg">FAQ — dúvidas rápidas</h2>
+          <p class="text-base">Removendo as últimas objeções para você decidir com segurança.</p>
+        </div>
+
+        <div class="faq" style="margin-top:16px;">
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" type="button">
+              A estampa DTF dura mesmo no uso frequente?
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer">
+              <p style="margin:12px 0 0;">Hipótese do posicionamento: DTF oferece acabamento premium e boa resistência. Recomendamos lavar do avesso e evitar altas temperaturas para preservar ainda mais.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question" type="button">
+              E se eu errar o tamanho?
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer">
+              <p style="margin:12px 0 0;">Tenha um guia de medidas claro e uma política de troca simples. Aqui no layout: “Troca rápida em até X dias” (ajuste com sua regra real).</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-question" type="button">
+              Quanto tempo para chegar?
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer">
+              <p style="margin:12px 0 0;">Mostre prazo estimado por CEP no checkout. Transparência reduz abandono de carrinho.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" type="button">
+              Como é a qualidade do tecido?
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer">
+              <p style="margin:12px 0 0;">Use fotos de close-up e informações objetivas (gramatura, composição e tipo de malha). Isso aumenta percepção premium.</p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question" type="button">
+              A NezeraRide é para qualquer pessoa?
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-answer">
+              <p style="margin:12px 0 0;">Não. É para quem vive a cultura motociclista e quer vestir identidade — dentro e fora da moto. Isso fortalece posicionamento premium.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. GARANTIAS -->
+    <section class="section" id="garantias">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <h2 class="heading-lg">Garantias que reduzem o risco</h2>
+            <p class="text-base">Confiança acelera decisão. Deixe as políticas claras e simples de entender.</p>
+
+            <div class="grid" style="margin-top:14px;">
+              <div class="card pad lift reveal reveal-delay-1">
+                <div class="icon" aria-hidden="true">↺</div>
+                <h3 class="heading-md" style="margin-top:10px;">Troca fácil</h3>
+                <p class="text-base" style="margin-top:6px;">Troca em até <strong>X dias</strong> (defina seu prazo real) com instruções simples.</p>
+              </div>
+              <div class="card pad lift reveal reveal-delay-2">
+                <div class="icon" aria-hidden="true">🛡</div>
+                <h3 class="heading-md" style="margin-top:10px;">Compra segura</h3>
+                <p class="text-base" style="margin-top:6px;">Checkout com boas práticas e comunicação clara do pedido e envio.</p>
+              </div>
+              <div class="card pad lift reveal reveal-delay-3">
+                <div class="icon" aria-hidden="true">✓</div>
+                <h3 class="heading-md" style="margin-top:10px;">Qualidade premium</h3>
+                <p class="text-base" style="margin-top:6px;">Produção própria e atenção ao acabamento — qualidade como identidade.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card pad reveal reveal-delay-1">
+            <div class="badge" aria-label="Badge centralizado de garantia">
+              <span class="seal" aria-hidden="true">✓</span>
+              Garantia de Satisfação (ajuste)
+            </div>
+            <p class="text-base">Use um texto curto e objetivo sobre o que está coberto e como acionar. Menos texto, mais clareza — melhor conversão.</p>
+            <div class="divider" aria-hidden="true"></div>
+            <p class="muted" style="margin:0;">Sugestão: incluir link/âncora para “Política de trocas e devoluções” no rodapé.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FORMULÁRIO OU CTA DE CONVERSÃO -->
+    <section class="section" id="cadastro">
+      <div class="container">
+        <div class="card pad reveal">
+          <h2 class="heading-lg" style="margin:0;">Entre para a tribo NezeraRide</h2>
+          <p class="text-base">Cadastre-se para receber lançamentos, drops e vantagens — e acelerar sua próxima compra.</p>
+
+          <form id="leadForm" novalidate>
+            <div class="form-grid" aria-label="Formulário de cadastro">
+              <div class="field">
+                <label for="name">Nome</label>
+                <input id="name" name="name" type="text" placeholder="Seu nome" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="intent">Interesse</label>
+                <select id="intent" name="intent" required>
+                  <option value="" selected>Selecione</option>
+                  <option value="camiseta">Camisetas</option>
+                  <option value="moletom">Moletons</option>
+                  <option value="kit">Kit Camiseta + Moletom</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-foot">
+              <div class="checkbox">
+                <input id="lgpd" name="lgpd" type="checkbox" required>
+                <label for="lgpd">Concordo em receber comunicações da NezeraRide. (LGPD — você pode cancelar a qualquer momento)</label>
+              </div>
+
+              <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+                <button class="btn btn-primary" type="submit">Cadastrar e receber novidades</button>
+                <a class="btn btn-ghost" href="#planos">Ver ofertas e comprar</a>
+              </div>
+
+              <div id="formMsg" class="muted" role="status" aria-live="polite"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. CTA FINAL -->
+    <section class="section" id="cta-final">
+      <div class="container">
+        <div class="card pad reveal lift" style="padding:22px;">
+          <div class="split" style="align-items:flex-start;">
+            <div>
+              <div class="kicker">
+                <span class="dot" aria-hidden="true"></span>
+                Pertencimento • Identidade • Durabilidade
+              </div>
+              <h2 class="heading-lg" style="margin-top:12px;">Pronto para vestir a estrada?</h2>
+              <p class="text-base">Não é só roupa. É identidade. Escolha sua peça e represente a cultura rider com padrão premium.</p>
+              <div class="hero-actions" style="margin-top:16px;">
+                <a class="btn btn-primary" href="#planos">Comprar agora</a>
+                <a class="btn btn-ghost" href="#beneficios">Ver benefícios</a>
+              </div>
+            </div>
+
+            <div>
+              <img src="img/ft4.png" 
+              alt="[Imagem CTA Final: foto real premium em contexto de rolê/garagem, estética autêntica]">
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+                <span class="pill">Rider Approved</span>
+                <span class="pill">Produção própria</span>
+                <span class="pill">DTF premium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. RODAPÉ -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand" style="gap:12px;">
+              <div class="logo" aria-hidden="true">NR</div>
+              <div class="brand-name">
+                <strong>NezeraRide</strong>
+                <span>Do coração da fábrica direto para sua jornada</span>
+              </div>
+            </div>
+            <p class="text-base" style="margin-top:12px;">Marca B2C premium de vestuário lifestyle para quem vive a cultura motociclista. Estilo e durabilidade com impressão DTF.</p>
+            <p class="legal">© <span id="year"></span> NezeraRide. Todos os direitos reservados.</p>
+          </div>
+
+          <div>
+            <strong style="display:block; margin-bottom:8px;">Links</strong>
+            <div class="footer-links">
+              <a href="#beneficios">Benefícios</a>
+              <a href="#prova">Prova social</a>
+              <a href="#planos">Planos e preços</a>
+              <a href="#faq">FAQ</a>
+              <a href="#cadastro">Cadastro</a>
+            </div>
+          </div>
+
+          <div>
+            <strong style="display:block; margin-bottom:8px;">Confiança & Conformidade</strong>
+            <div class="footer-links">
+              <a href="#garantias">Trocas e devoluções (ajuste)</a>
+              <a href="#garantias">Garantias (ajuste)</a>
+              <a href="#cadastro">Política de privacidade (ajuste)</a>
+            </div>
+            <p class="legal">Dica CRO: substitua “ajuste” por políticas reais e adicione CNPJ/endereço quando disponível.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Drawer menu (mobile)
+    (function(){
+      const drawer = document.getElementById('drawer');
+      const openBtn = document.getElementById('openMenu');
+      const closeBtn = document.getElementById('closeMenu');
+
+      function openDrawer(){
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden','false');
+        // foco acessível
+        closeBtn && closeBtn.focus();
+      }
+      function closeDrawer(){
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+        openBtn && openBtn.focus();
+      }
+
+      openBtn && openBtn.addEventListener('click', openDrawer);
+      closeBtn && closeBtn.addEventListener('click', closeDrawer);
+      drawer && drawer.addEventListener('click', (e) => {
+        if (e.target === drawer) closeDrawer();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+
+      // fechar ao clicar em links
+      drawer.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', closeDrawer);
+      });
+    })();
+
+    // Scroll Reveal com IntersectionObserver (Motion = Moderada)
+    (function() {
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) {
+        document.querySelectorAll('.reveal').forEach(el => {
+          el.classList.add('active');
+          el.style.willChange = 'auto';
+        });
+        return;
+      }
+
+      const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -60px 0px' };
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        }
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.addEventListener('transitionend', function() {
+          this.style.willChange = 'auto';
+        }, { once: true });
+      });
+    })();
+
+    // Accordion (FAQ)
+    (function(){
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const btn = item.querySelector('.faq-question');
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('active');
+          items.forEach(i => i.classList.remove('active'));
+          if (!isOpen) item.classList.add('active');
+        });
+      });
+    })();
+
+    // Form (demo) — validação mínima e mensagem (sem requests externas)
+    (function(){
+      const form = document.getElementById('leadForm');
+      const msg = document.getElementById('formMsg');
+      if (!form) return;
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        msg.textContent = '';
+
+        const name = form.querySelector('#name');
+        const email = form.querySelector('#email');
+        const intent = form.querySelector('#intent');
+        const lgpd = form.querySelector('#lgpd');
+
+        const invalid = [];
+        if (!name.value.trim()) invalid.push('nome');
+        if (!email.value.trim() || !email.value.includes('@')) invalid.push('email');
+        if (!intent.value) invalid.push('interesse');
+        if (!lgpd.checked) invalid.push('LGPD');
+
+        if (invalid.length) {
+          msg.textContent = 'Por favor, revise: ' + invalid.join(', ') + '.';
+          msg.style.color = 'rgba(255,255,255,0.78)';
+          return;
+        }
+
+        msg.textContent = 'Cadastro recebido! Em breve você vai receber novidades da NezeraRide.';
+        msg.style.color = 'rgba(201,162,39,0.95)';
+        form.reset();
+      }, { passive: false });
+    })();
+  </script>
+</body>
+</html>
